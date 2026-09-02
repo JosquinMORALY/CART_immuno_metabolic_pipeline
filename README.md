@@ -8,27 +8,29 @@ Immuno-metabolic profiling pipeline for CAR T cells — Moraly et al., *Nature I
 
 ## Overview
 
-This repository contains the processed data and analysis code used to generate **Figure 1** and **Extended Data Figure 1** of the manuscript by Moraly et al.
+This repository contains the processed data and analysis code used to generate **Figure 1** and **Extended Data Figure 1**.
 
-These figures describe the development and validation of an integrated immuno-metabolic profiling pipeline for CAR T cells. The approach combines multiplex cytokine measurements with high-dimensional spectral cytometry to characterize protein synthesis, mitochondrial activity, metabolite-transporter expression, and metabolic pathway dependencies at single-cell resolution.
+The immuno-metabolic profiling pipeline combines longitudinal measurement of 12 cytokines and chemokines over 72 hours with extracellular flux analysis and high-dimensional spectral flow cytometry. Metabolic profiling includes glycolysis, oxidative phosphorylation, spare respiratory capacity, protein synthesis, mitochondrial dependence, mitochondrial mass, membrane potential, ROS, and GLUT1 and ASCT2 expression.
 
 ## Repository contents
 
-- [`data/`](data/): processed data used to generate Figure 1 and Extended Data Figure 1
-- [`code/`](code/): data-analysis and figure-generation scripts
+* [`data/`](data/) — processed, analysis-ready datasets from 4 donors and 6 CAR constructs.
 
-```text
-CART_immuno_metabolic_pipeline/
-├── README.md
-├── data/
-│   ├── cytokines.csv
-│   ├── metabolic_features_protein_synthesis.csv
-│   └── single_cell.csv
-└── code/
-    ├── cytokine_dynamics.ipynb
-    └── integrative_analysis.ipynb
-```
+* [`code/`](code/):
+
+  * **`01_cytokine_analysis.ipynb`** — analysis of global cytokine secretion (integrated log-transformed cytokine concentrations) and high-dimensional cytokine dynamics, including low-dimensional projection and extraction of kinetic parameters, adapted from Achar et al., *Science* (2022), DOI: 10.1126/science.abl5311.
+  * **`02_metabolic_parameters_and_score.ipynb`** — analysis and integration of metabolic features, including calculation of a PCA-based composite metabolic score summarizing extracellular flux, nutrient-transporter expression, and mitochondrial parameters.
+
+## Repository contents
+
+- [`data/`](data/) — processed, analysis-ready datasets:
+  - `cytokineConcentrationPickleFile-20221003-MetMYCAR_1.pkl` — longitudinal cytokine and chemokine measurements used for cytokine dynamics analyses.
+  - `metabo_all_act1.xlsx` — metabolic profiling dataset containing extracellular flux and spectral flow cytometry-derived parameters.
+
+- [`code/`](code/):
+  - `01_cytokine_analysis.ipynb` — analysis of global cytokine secretion (integrated log-transformed cytokine concentrations) and high-dimensional cytokine dynamics, including low-dimensional projection and extraction of kinetic parameters, adapted from Achar et al., *Science* (2022), DOI: 10.1126/science.abl5311.
+  - `02_metabolic_parameters_and_score.ipynb` — analysis and integration of metabolic features, including calculation of a PCA-based composite metabolic score.
 
 ## Data availability
 
-The processed data required to reproduce Figure 1 and Extended Data Figure 1 are provided in the [`data/`](data/) directory.
+Processed data required to reproduce the corresponding analyses are provided in the [`data/`](data/) directory.
