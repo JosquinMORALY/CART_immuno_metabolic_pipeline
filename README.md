@@ -10,7 +10,7 @@ Immuno-metabolic profiling pipeline for CAR T cells — Moraly et al., *Nature I
 
 This repository contains the processed data and analysis code used to generate **Figure 1** and **Extended Data Figure 1**.
 
-The immuno-metabolic profiling pipeline combines longitudinal measurement of 12 cytokines and chemokines over 72 hours with extracellular flux analysis and high-dimensional spectral flow cytometry. Metabolic profiling includes glycolysis, oxidative phosphorylation, spare respiratory capacity, protein synthesis, mitochondrial dependence, mitochondrial mass, membrane potential, ROS, and GLUT1 and ASCT2 expression.
+The immuno-metabolic profiling pipeline combines longitudinal measurement of 12 cytokines and chemokines over 72 hours using the IMMUNOtron robotic pipeline [1] with extracellular flux analysis and high-dimensional spectral flow cytometry. Metabolic profiling includes glycolysis, oxidative phosphorylation, spare respiratory capacity, protein synthesis, mitochondrial dependence, mitochondrial mass, membrane potential, ROS, and GLUT1 and ASCT2 expression.
 
 ## Repository contents
 
@@ -18,8 +18,8 @@ The immuno-metabolic profiling pipeline combines longitudinal measurement of 12 
 
 * [`code/`](code/):
 
-  * **`01_cytokine_analysis.ipynb`** — analysis of global cytokine secretion (integrated log-transformed cytokine concentrations) and high-dimensional cytokine dynamics, including low-dimensional projection and extraction of kinetic parameters, adapted from Achar et al., *Science* (2022), DOI: 10.1126/science.abl5311.
-  * **`02_metabolic_parameters_and_score.ipynb`** — analysis and integration of metabolic features, including calculation of a PCA-based composite metabolic score summarizing extracellular flux, nutrient-transporter expression, and mitochondrial parameters.
+* **`01_cytokine_analysis.ipynb`** — analysis of global cytokine secretion (integrated log-transformed cytokine concentrations) and high-dimensional cytokine dynamics, including low-dimensional projection and extraction of kinetic parameters. The analysis was adapted from a pipeline developed by Grégoire Altan-Bonnet and colleagues at the National Cancer Institute (NCI).
+* **`02_metabolic_parameters_and_score.ipynb`** — analysis and integration of metabolic features, including calculation of a PCA-based composite metabolic score summarizing extracellular flux, nutrient-transporter expression, and mitochondrial parameters.
 
 ## Repository contents
 
@@ -34,3 +34,7 @@ The immuno-metabolic profiling pipeline combines longitudinal measurement of 12 
 ## Data availability
 
 Processed data required to reproduce the corresponding analyses are provided in the [`data/`](data/) directory.
+
+## References
+
+1. Achar SR, Bourassa FXP, Rademaker TJ, et al. Universal antigen encoding of T cell activation from high-dimensional cytokine dynamics. *Science*. 2022;376:880–884. doi:10.1126/science.abl5311.
