@@ -17,6 +17,8 @@ The immuno-metabolic CAR T-cell profiling pipeline combines longitudinal measure
 ```text
 CART_immuno_metabolic_pipeline/
 ├── README.md
+├── LICENSE
+├── requirements.txt
 ├── data/
 │   ├── cytokineConcentrationPickleFile-20221003-MetMYCAR_1.pkl
 │   └── metabo_all_act1.xlsx
@@ -31,11 +33,74 @@ CART_immuno_metabolic_pipeline/
 * **`code/`** — notebooks for cytokine dynamics analysis and integrated metabolic profiling.
 * **`output/`** — example figures generated using the analysis notebooks.
 
+## System requirements
 
+The analysis notebooks were tested in Google Colab with **Python 3.13.15**.
+
+The following Python packages were used:
+
+* NumPy 2.1.3
+* pandas 2.2.3
+* Matplotlib 3.10.0
+* seaborn 0.13.2
+* SciPy 1.16.3
+* scikit-learn 1.6.1
+
+Package dependencies and versions are also provided in [`requirements.txt`](requirements.txt).
+
+No non-standard hardware is required.
+
+## Installation
+
+The notebooks can be run directly in Google Colab or in a local Python environment.
+
+For local use, clone the repository and install the required dependencies:
+
+```bash
+git clone https://github.com/JosquinMORALY/CART_immuno_metabolic_pipeline.git
+cd CART_immuno_metabolic_pipeline
+pip install -r requirements.txt
+```
+
+Installation of the required packages typically takes a few minutes on a standard desktop computer.
+
+## Demo and instructions for use
+
+The processed datasets required to run the analyses are provided in the `data/` directory. The notebooks in the `code/` directory can be run sequentially from top to bottom using these datasets.
+
+### 1. Cytokine dynamics analysis
+
+`01_cytokine_analysis.ipynb`
+
+This notebook analyzes longitudinal cytokine and chemokine measurements and derives integrated features describing cytokine dynamics across CAR T-cell constructs.
+
+**Input:** `data/cytokineConcentrationPickleFile-20221003-MetMYCAR_1.pkl`
+
+**Expected output:** cytokine dynamics analyses and associated figures.
+
+### 2. Metabolic parameters and integrated score
+
+`02_metabolic_parameters_and_score.ipynb`
+
+This notebook analyzes metabolic parameters across CAR T-cell constructs and integrates these measurements for comparative metabolic profiling.
+
+**Input:** `data/metabo_all_act1.xlsx`
+
+**Expected output:** metabolic profiling analyses and associated figures.
+
+The notebooks can also be applied to other datasets provided that input data follow the same structure and variable naming as the example datasets supplied in the repository.
+
+## Reproducing manuscript analyses
+
+The notebooks and processed datasets provided in this repository contain the analysis workflow used for the corresponding quantitative analyses presented in **Figure 1** and **Extended Data Figure 1** of the manuscript.
 
 ## Data availability
 
 Processed data required to reproduce the corresponding analyses are provided in the [`data/`](data/) directory.
+
+## License
+
+The code in this repository is available under the [MIT License](LICENSE).
 
 ## References
 
